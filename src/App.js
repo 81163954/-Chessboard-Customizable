@@ -9,6 +9,7 @@ function App() {
           boardX={15}
           boardY={15}
           rule={5}
+          canCancelChess={false}
       />
     </div>
 

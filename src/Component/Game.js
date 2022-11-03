@@ -163,18 +163,20 @@ export class Game extends React.Component {
 
         //获胜者
         let winner = this.calculateWinner(squares,next,position);
+        //判断点击了有格子的区域逻辑
         if(squares[i]){
             //围棋提子逻辑，即在一个有子的格子点击，提起此棋子
-            // squares[i] = null;
-            // this.setState({
-            //     winner:winner,
-            //     history: history.concat([{
-            //         squares: squares,
-            //         position: position,
-            //     }]),
-            //     stepNumber: history.length,
-            // });
-
+            if(this.props.canCancelChess){
+                squares[i] = null;
+                this.setState({
+                    winner:winner,
+                    history: history.concat([{
+                        squares: squares,
+                        position: position,
+                    }]),
+                    stepNumber: history.length,
+                });
+            }
             return;
         }
 
